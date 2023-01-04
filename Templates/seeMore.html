@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seeMore Details</title>
+
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-static-top navbar-expand-lg fixed-top  bg-light  bg-gradient">
+        <div class="container-fluid">
+            <a href="/" class=" btn btn-outline-secondary me-2 "> Home </a>
+            {% if user.is_authenticated %}
+                    <a href="{% url 'addBlog' %}" class=" btn btn-outline-secondary me-2 ">Add Blog</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class=" btn btn-outline-secondary me-2 ">Add Blog</a>
+                    {% endif %}
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+                </ul>
+                <div class="d-flex">
+
+
+
+                    {% if user.is_authenticated %}
+
+
+                    <h5 class="text-muted me-2 mt-1"> Hello, {{user.first_name}} </h5>
+
+                    <a href="/logout" class="btn btn-outline-secondary "> Logout </a>
+                    {% else %}
+                    <h5 class="text-muted me-2 mt-1"> Hello, Guest</h5>
+                    <a href="/login" class="btn btn-outline-secondary"> Login </a>
+                    <a href="/signup" class="btn ms-2 btn-outline-secondary"> Sign Up </a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mt-5 p-4">
+<section class="mbr-section content4   cid-qvbjfGj2Ze" id="content4-7x" data-rv-view="3584">
+    <div class="container ">
+        <div class="media-container">
+            <div class="title  text-center md-8">
+                <h2 class=" pb-3 mbr-fonts-style display-6">{{ blog.title }}</h2>
+                <h4 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-7">
+                    <em>By <a href="/">{{blog.author.first_name}} {{blog.author.last_name}}</a> posted on {{ blog.created_at }}</em></h4>
+
+            </div>
+        </div>
+    </div>
+</section>
+        </div>
+
+
+<section class="mbr-section article content1 cid-qvbjomyZfb" id="content1-7y" data-rv-view="3586">
+
+
+
+    <div class="container">
+        <div class="media-container-row  ">
+            <div class="container  col-10">
+            <div class="mbr-text align-center col-12 ps-1 pe-4 mx-3  mbr-fonts-style display-7">{{blog.description|safe}}</div>
+        </div>
+            </div>
+    </div>
+</section>
+<br>
+<p class="text-center"><a  href="/">
+    Back to home
+</a></p>
+
+
+</body>
+</html>
