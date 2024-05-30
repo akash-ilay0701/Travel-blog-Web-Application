@@ -1,0 +1,1 @@
+Hodophile ( Travel Blog Web Application ) is created using Python, Django web framework, Bootstrap and PostgreSQL database. Web app created with user registration, login, logout system. We can add our own blog and can read other’s blog too.
